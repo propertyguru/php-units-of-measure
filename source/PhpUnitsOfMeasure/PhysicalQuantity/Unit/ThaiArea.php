@@ -4,7 +4,7 @@ namespace PhpUnitsOfMeasure\PhysicalQuantity\Unit;
 use \PhpUnitsOfMeasure\PhysicalQuantity;
 use \PhpUnitsOfMeasure\UnitOfMeasure;
 
-class ThaiArea
+class ThaiArea implements \PhpUnitsOfMeasure\UnitInterface
 {
     public static function register(PhysicalQuantity $p)
     {

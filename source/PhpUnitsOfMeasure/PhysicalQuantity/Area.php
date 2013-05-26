@@ -3,11 +3,10 @@ namespace PhpUnitsOfMeasure\PhysicalQuantity;
 
 use \PhpUnitsOfMeasure\PhysicalQuantity;
 use \PhpUnitsOfMeasure\UnitOfMeasure;
-use \PhpUnitsOfMeasure\PhysicalQuantity\Unit\ThaiAreaUnit;
 
 class Area extends PhysicalQuantity
 {
-    private $definition = array('Thai', 'English', 'SI');
+    private $definitions = array('SI', 'English', 'Thai');
     
     /**
      * Configure all the standard units of measure
@@ -18,9 +17,22 @@ class Area extends PhysicalQuantity
     public function __construct($value, $unit)
     {
         parent::__construct($value, $unit);
-        foreach ($this->definition as $d) {
-            $class = '\\' . __NAMESPACE__ . '\\Unit\\' . $d . 'Area';
+        $this->registerUnit($this->definitions);
+    }
+
+    public function registerUnit($definitions)
+    {
+        foreach ($definitions as $d) {
+            $class = '\\' . __NAMESPACE__ . '\\Unit\\' . $d . $this->getType();
             $class::register($this);
         }
+
+    }
+
+    protected function getType()
+    {
+        $fullclass = explode('\\',__CLASS__);
+        $class = array_pop($fullclass);
+        return $class;
     }
 }

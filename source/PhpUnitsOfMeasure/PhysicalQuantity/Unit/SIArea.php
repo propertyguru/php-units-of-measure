@@ -4,7 +4,7 @@ namespace PhpUnitsOfMeasure\PhysicalQuantity\Unit;
 use \PhpUnitsOfMeasure\PhysicalQuantity;
 use \PhpUnitsOfMeasure\UnitOfMeasure;
 
-class SIArea
+class SIArea implements \PhpUnitsOfMeasure\UnitInterface
 {
     public static function register(PhysicalQuantity $p)
     {
@@ -70,6 +70,9 @@ class SIArea
             },
             function ($x) {
                 return $x * 1e-2;
+            },
+            function ($x) {
+                return bcsub(abs($x / 1e-2), floor(abs($x / 1e-2)), 20) * 1e-2;
             }
         );
         $new_unit->addAlias('dm²');
