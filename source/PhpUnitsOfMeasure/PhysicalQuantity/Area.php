@@ -18,7 +18,7 @@ class Area extends PhysicalQuantity
     public function __construct($value, $unit)
     {
         parent::__construct($value, $unit);
-        foreach ($this->definition as $d){
+        foreach ($this->definition as $d) {
             $class = '\\' . __NAMESPACE__ . '\\Unit\\' . $d . 'Area';
             $class::register($this);
         }
