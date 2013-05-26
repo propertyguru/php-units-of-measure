@@ -102,7 +102,7 @@ abstract class PhysicalQuantity
         $return = array();
         $remains_value = $this->original_value;
 
-        foreach ($arrayofunit as $unit){
+        foreach ($arrayofunit as $unit) {
             $original_unit     = $this->findUnitOfMeasureByNameOrAlias($this->original_unit);
             $native_unit_value = $original_unit->convertValueToNativeUnitOfMeasure($remains_value);
 
