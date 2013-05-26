@@ -19,20 +19,4 @@ class Area extends PhysicalQuantity
         parent::__construct($value, $unit);
         $this->registerUnit($this->definitions);
     }
-
-    public function registerUnit($definitions)
-    {
-        foreach ($definitions as $d) {
-            $class = '\\' . __NAMESPACE__ . '\\Unit\\' . $d . $this->getType();
-            $class::register($this);
-        }
-
-    }
-
-    protected function getType()
-    {
-        $fullclass = explode('\\',__CLASS__);
-        $class = array_pop($fullclass);
-        return $class;
-    }
 }

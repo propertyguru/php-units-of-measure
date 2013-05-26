@@ -181,18 +181,22 @@ abstract class PhysicalQuantity
 
         throw new Exception\UnknownUnitOfMeasure('Unknown unit of measure ($unit)');
     }
-    
+
     public function registerUnit($definitions)
     {
         foreach ($definitions as $d) {
-            $class = '\\' . __NAMESPACE__ . '\\Unit\\' . $d . $this->getType();
+            $fullclass = explode('\\',get_class($this));
+            $class = array_pop($fullclass);
+            $namespace = implode('\\',$fullclass);
+            $class = '\\' . $namespace . '\\Unit\\' . $d . $this->getType();
             $class::register($this);
         }
 
     }
-    protected function getType()
+    
+    public function getType()
     {
-        $fullclass = explode('\\',__CLASS__);
+        $fullclass = explode('\\',get_class($this));
         $class = array_pop($fullclass);
         return $class;
     }
