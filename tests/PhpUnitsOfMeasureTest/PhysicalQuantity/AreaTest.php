@@ -28,4 +28,12 @@ class AreaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1600, $area->toUnit('m^2'));
       
     }
+
+    public function testScalingThaiUnit () {
+        $area = new Area(2399, 'm^2');
+        $actual = $area->toScalingUnit(array('rai','ngan','swah'));
+        $this->assertEquals(1,$actual['rai']);
+        $this->assertEquals(1,$actual['ngan']);
+        $this->assertEquals(99.75,$actual['swah']);
+    }
 }

@@ -91,6 +91,32 @@ abstract class PhysicalQuantity
     }
 
     /**
+    * Fetch multiple measurement unit and return from large scale to small scale
+    *
+    * @param array $arrayofunit Array of Measurement units from large scale to small scale
+    *
+    * @return array The measurement cast in the requested units from large scale to small scale
+    */
+    public function toScalingUnit($arrayofunit)
+    {
+        $return = array();
+        $remains_value = $this->original_value;
+
+        foreach ($arrayofunit as $unit){
+            $original_unit     = $this->findUnitOfMeasureByNameOrAlias($this->original_unit);
+            $native_unit_value = $original_unit->convertValueToNativeUnitOfMeasure($remains_value);
+
+            $to_unit       = $this->findUnitOfMeasureByNameOrAlias($unit);
+            $to_unit_value = $to_unit->convertValueFromNativeUnitOfMeasure($native_unit_value);
+
+            $remains_value = $to_unit->getFractionFromNativeUnitOfMeasure($remains_value);
+            $return[$unit] = floor($to_unit_value);
+        }
+        $return[$unit] = $to_unit_value;
+        return $return;
+    }
+
+    /**
      * Add a given quantity to this quantity, and return a new quantity object.
      *
      * Note that the new quantity's original unit will be the same as this object's.

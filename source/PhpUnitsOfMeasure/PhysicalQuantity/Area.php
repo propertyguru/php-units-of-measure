@@ -24,6 +24,9 @@ class Area extends PhysicalQuantity
             },
             function ($x) {
                 return $x;
+            },
+            function ($x) {
+                return 0;
             }
         );
         $new_unit->addAlias('m²');
@@ -159,6 +162,9 @@ class Area extends PhysicalQuantity
             },
             function ($x) {
                 return $x * 1600;
+            },
+            function ($x) {
+                return $x % 1600;
             }
         );
         $new_unit->addAlias('rai');
@@ -172,6 +178,9 @@ class Area extends PhysicalQuantity
             },
             function ($x) {
                 return $x * 400;
+            },
+            function ($x) {
+                return $x % 400;
             }
         );
         $new_unit->addAlias('ngan');
@@ -185,6 +194,9 @@ class Area extends PhysicalQuantity
             },
             function ($x) {
                 return $x * 4;
+            },
+            function ($x) {
+                return $x % 4;
             }
         );
         $new_unit->addAlias('wa^2');
