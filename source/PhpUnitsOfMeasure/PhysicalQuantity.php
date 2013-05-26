@@ -28,7 +28,7 @@ abstract class PhysicalQuantity
      *
      * @var \PhpUnitsOfMeasure\UnitOfMeasureInterface[]
      */
-    protected $unit_definitions = array();
+    protected static $unit_definitions = array();
 
     /**
      * Store the value and its original unit.
@@ -67,9 +67,9 @@ abstract class PhysicalQuantity
      *
      * @return void
      */
-    public function registerUnitOfMeasure(UnitOfMeasureInterface $unit)
+    public static function registerUnitOfMeasure(UnitOfMeasureInterface $unit)
     {
-        $this->unit_definitions[] = $unit;
+        self::$unit_definitions[] = $unit;
     }
 
     /**
@@ -173,12 +173,27 @@ abstract class PhysicalQuantity
      */
     protected function findUnitOfMeasureByNameOrAlias($unit)
     {
-        foreach ($this->unit_definitions as $unit_of_measure) {
+        foreach (self::$unit_definitions as $unit_of_measure) {
             if ($unit === $unit_of_measure->getName() || $unit_of_measure->isAliasOf($unit)) {
                 return $unit_of_measure;
             }
         }
 
         throw new Exception\UnknownUnitOfMeasure('Unknown unit of measure ($unit)');
+    }
+    
+    public function registerUnit($definitions)
+    {
+        foreach ($definitions as $d) {
+            $class = '\\' . __NAMESPACE__ . '\\Unit\\' . $d . $this->getType();
+            $class::register($this);
+        }
+
+    }
+    protected function getType()
+    {
+        $fullclass = explode('\\',__CLASS__);
+        $class = array_pop($fullclass);
+        return $class;
     }
 }
