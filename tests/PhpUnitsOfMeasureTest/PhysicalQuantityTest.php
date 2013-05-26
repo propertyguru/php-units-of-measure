@@ -149,4 +149,20 @@ class PhysicalQuantityTest extends \PHPUnit_Framework_TestCase
 
         $sum = $first->subtract($second);
     }
+
+    public function testRegisterUnit()
+    {
+        $w = new \PhpUnitsOfMeasure\PhysicalQuantity\Area(1, 'wa^2');
+        $w->registerUnit(array('Thai'));
+        $this->assertEquals(4, $w->toUnit('m^2'));
+    }
+
+    public function testGetUnitType()
+    {
+        $w = new \PhpUnitsOfMeasure\PhysicalQuantity\Area(1, 'm^2');
+        $this->assertEquals('Area', $w->getType());
+
+        $w = new \PhpUnitsOfMeasure\PhysicalQuantity\Volume(1, 'liters');
+        $this->assertEquals('Volume', $w->getType());
+    }
 }
