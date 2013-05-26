@@ -46,14 +46,16 @@ class UnitOfMeasure implements UnitOfMeasureInterface
      * @param string   $name             This unit of measure's canonical name
      * @param callable $from_native_unit The callable that can cast values into this unit of measure from the native unit of measure
      * @param callable $to_native_unit   The callable that can cast values into the native unit from this unit of measure
+     * @param callable $to_native_unit_fraction The callable that return the fraction this unit of measure which not fit in to native unit
      *
      * @return void
      */
-    public function __construct($name, $from_native_unit, $to_native_unit)
+    public function __construct($name, $from_native_unit, $to_native_unit, $to_native_unit_fraction = null)
     {
         $this->name             = $name;
         $this->from_native_unit = $from_native_unit;
         $this->to_native_unit   = $to_native_unit;
+        $this->to_native_unit_fraction = $to_native_unit_fraction;
     }
 
     /**
@@ -95,6 +97,12 @@ class UnitOfMeasure implements UnitOfMeasureInterface
     public function convertValueToNativeUnitOfMeasure($value)
     {
         $callable = $this->to_native_unit;
+        return $callable($value);
+    }
+
+    public function getFractionFromNativeUnitOfMeasure($value)
+    {
+        $callable = $this->to_native_unit_fraction;
         return $callable($value);
     }
 }
