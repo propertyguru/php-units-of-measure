@@ -1,5 +1,9 @@
+# Note
+
+this repository forked from [triplepoint](https://github.com/triplepoint/php-units-of-measure)
+
 # PHP Units of Measure
-master: [![Build Status](https://travis-ci.org/triplepoint/php-units-of-measure.png?branch=master)](https://travis-ci.org/triplepoint/php-units-of-measure)
+master: [![Build Status](https://travis-ci.org/propertyguru/php-units-of-measure.png?branch=master)](https://travis-ci.org/triplepoint/php-units-of-measure)
 
 ## Introduction
 This is a PHP library for representing and converting physical units of measure.  The utility of this library

@@ -1,17 +1,15 @@
 {
-    "name":        "scalopus/php-units-of-measure",
+    "name":        "propertyguru/php-units-of-measure",
 
-    "description": "A PHP library for converting between standard units of measure.",
+    "description": "A PHP library for converting between standard units of measure. Forked from https://github.com/triplepoint/php-units-of-measure",
 
     "keywords": [
          "measurements", "data", "conversion"
      ],
 
-    "homepage":    "https://github.com/scalopus/php-units-of-measure",
-
     "license": "MIT",
 
-    "authors": [
+    "original-authors": [
         {
             "name":     "Jonathan Hanson",
             "email":    "jonathan@jonathan-hanson.org",
@@ -20,14 +18,8 @@
         }
     ],
 
-    "support": {
-        "email":  "jonathan@jonathan-hanson.org",
-        "issues": "https://github.com/scalopus/php-units-of-measure/issues",
-        "source": "https://github.com/scalopus/php-units-of-measure"
-    },
-
     "require": {
-        "php": ">=5.3.5"
+        "php": ">=5.4"
     },
 
     "require-dev": {
