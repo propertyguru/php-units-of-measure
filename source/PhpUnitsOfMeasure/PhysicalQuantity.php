@@ -185,18 +185,18 @@ abstract class PhysicalQuantity
     public function registerUnit($definitions)
     {
         foreach ($definitions as $d) {
-            $fullclass = explode('\\',get_class($this));
+            $fullclass = explode('\\', get_class($this));
             $class = array_pop($fullclass);
-            $namespace = implode('\\',$fullclass);
+            $namespace = implode('\\', $fullclass);
             $class = '\\' . $namespace . '\\Unit\\' . $d . $this->getType();
             $class::register($this);
         }
 
     }
-    
+
     public function getType()
     {
-        $fullclass = explode('\\',get_class($this));
+        $fullclass = explode('\\', get_class($this));
         $class = array_pop($fullclass);
         return $class;
     }
