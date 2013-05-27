@@ -42,6 +42,7 @@ abstract class PhysicalQuantity
     {
         $this->original_value = $value;
         $this->original_unit = $unit;
+        $this->registerUnit($this->getDefaultDefinition());
     }
 
     /**
@@ -192,6 +193,7 @@ abstract class PhysicalQuantity
             $class::register($this);
         }
 
+        return $this;
     }
 
     public function getType()
@@ -199,5 +201,10 @@ abstract class PhysicalQuantity
         $fullclass = explode('\\', get_class($this));
         $class = array_pop($fullclass);
         return $class;
+    }
+
+    protected function getDefaultDefinition()
+    {
+        return array();
     }
 }
