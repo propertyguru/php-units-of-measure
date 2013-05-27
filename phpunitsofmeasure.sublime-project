@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/var/php-units-of-measure"
+		}
+	],
+  "settings":
+    {
+        "draw_white_space": "all",
+        "font_size": 15,
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
+        "default_line_ending": "unix"
+    }
+}
