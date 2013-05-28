@@ -18,7 +18,7 @@ class SIArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x;
             },
             function ($x) {
-                return bcsub(abs($x), floor(abs($x)), 20);
+                return (abs($x) - floor(abs($x)));
             }
         );
         $new_unit->addAlias('m²');
@@ -36,7 +36,7 @@ class SIArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 1e-6;
             },
             function ($x) {
-                return bcsub(abs($x / 1e-6), floor(abs($x / 1e-6)), 20) * 1e-6;
+                return (abs($x / 1e-6) - floor(abs($x / 1e-6))) * 1e-6;
             }
         );
         $new_unit->addAlias('mm²');
@@ -54,7 +54,7 @@ class SIArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 1e-4;
             },
             function ($x) {
-                return bcsub(abs($x / 1e-4), floor(abs($x / 1e-4)), 20) * 1e-4;
+                return (abs($x / 1e-4) - floor(abs($x / 1e-4))) * 1e-4;
             }
         );
         $new_unit->addAlias('cm²');
@@ -72,7 +72,7 @@ class SIArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 1e-2;
             },
             function ($x) {
-                return bcsub(abs($x / 1e-2), floor(abs($x / 1e-2)), 20) * 1e-2;
+                return (abs($x / 1e-2) - floor(abs($x / 1e-2))) * 1e-2;
             }
         );
         $new_unit->addAlias('dm²');
@@ -90,7 +90,7 @@ class SIArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 1e6;
             },
             function ($x) {
-                return bcsub(abs($x / 1e6), floor(abs($x / 1e6)), 20) * 1e6;
+                return (abs($x / 1e6) - floor(abs($x / 1e6))) * 1e6;
             }
         );
         $new_unit->addAlias('km²');
