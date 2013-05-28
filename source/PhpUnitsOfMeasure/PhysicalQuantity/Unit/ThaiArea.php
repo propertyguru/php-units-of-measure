@@ -18,7 +18,7 @@ class ThaiArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 1600;
             },
             function ($x) {
-                return bcsub(abs($x / 1600), floor(abs($x / 1600)), 20) * 1600;
+                return (abs($x / 1600) - floor(abs($x / 1600))) * 1600;
             }
         );
         $new_unit->addAlias('rai');
@@ -34,7 +34,7 @@ class ThaiArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 400;
             },
             function ($x) {
-                return bcsub(abs($x / 400), floor(abs($x / 400)), 20) * 400;
+                return (abs($x / 400) - floor(abs($x / 400))) * 400;
             }
         );
         $new_unit->addAlias('ngan');
@@ -50,7 +50,7 @@ class ThaiArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 4;
             },
             function ($x) {
-                return bcsub(abs($x / 4), floor(abs($x / 4)), 20) * 4;
+                return (abs($x / 4) - floor(abs($x / 4))) * 4;
             }
         );
         $new_unit->addAlias('wa^2');

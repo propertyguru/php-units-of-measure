@@ -18,7 +18,7 @@ class EnglishArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 9.290304e-2;
             },
             function ($x) {
-                return bcsub(abs($x / 9.290304e-2), floor(abs($x / 9.290304e-2)), 20) * 9.290304e-2;
+                return (abs($x / 9.290304e-2) - floor(abs($x / 9.290304e-2))) * 9.290304e-2;
             }
         );
         $new_unit->addAlias('ft²');
@@ -36,7 +36,7 @@ class EnglishArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 6.4516e-4;
             },
             function ($x) {
-                return bcsub(abs($x / 6.4516e-4), floor(abs($x / 6.4516e-4)), 20) * 6.4516e-4;
+                return (abs($x / 6.4516e-4) - floor(abs($x / 6.4516e-4))) * 6.4516e-4;
             }
         );
         $new_unit->addAlias('in²');
@@ -54,7 +54,7 @@ class EnglishArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 2.589988e6;
             },
             function ($x) {
-                return bcsub(abs($x / 2.589988e6), floor(abs($x / 2.589988e6)), 20) * 2.589988e6;
+                return (abs($x / 2.589988e6) - floor(abs($x / 2.589988e6))) * 2.589988e6;
             }
         );
         $new_unit->addAlias('mi²');
@@ -72,7 +72,7 @@ class EnglishArea implements \PhpUnitsOfMeasure\UnitInterface
                 return $x * 8.361274e-1;
             },
             function ($x) {
-                return bcsub(abs($x / 8.361274e-1), floor(abs($x / 8.361274e-1)), 20) * 8.361274e-1;
+                return (abs($x / 8.361274e-1) - floor(abs($x / 8.361274e-1))) * 8.361274e-1;
             }
         );
         $new_unit->addAlias('yd²');
