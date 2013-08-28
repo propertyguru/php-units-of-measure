@@ -79,5 +79,22 @@ class EnglishArea implements \PhpUnitsOfMeasure\UnitInterface
         $new_unit->addAlias('yard squared');
         $new_unit->addAlias('yards squared');
         $p->registerUnitOfMeasure($new_unit);
+
+        // Acres
+        $new_unit = new UnitOfMeasure(
+            'ac',
+            function ($x) {
+                return $x / 4.046873e3;
+            },
+            function ($x) {
+                return $x * 4.046873e3;
+            },
+            function ($x) {
+                return (abs($x / 4.046873e3) - floor(abs($x / 4.046873e3))) * 4.046873e3;
+            }
+        );
+        $new_unit->addAlias('acre');
+        $new_unit->addAlias('acres');
+        $p->registerUnitOfMeasure($new_unit);
     }
 }
