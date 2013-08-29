@@ -24,6 +24,7 @@ class EnglishArea implements \PhpUnitsOfMeasure\UnitInterface
         $new_unit->addAlias('ft²');
         $new_unit->addAlias('foot squared');
         $new_unit->addAlias('feet squared');
+        $new_unit->addAlias('sqft');
         $p->registerUnitOfMeasure($new_unit);
 
         // Inch squared
