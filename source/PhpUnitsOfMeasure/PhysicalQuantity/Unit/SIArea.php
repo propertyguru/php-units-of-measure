@@ -24,6 +24,7 @@ class SIArea implements \PhpUnitsOfMeasure\UnitInterface
         $new_unit->addAlias('m²');
         $new_unit->addAlias('meter squared');
         $new_unit->addAlias('meters squared');
+        $new_unit->addAlias('sqm');
         $p->registerUnitOfMeasure($new_unit);
 
         // Millimeter squared
